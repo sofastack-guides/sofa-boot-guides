@@ -14,8 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.isle.sample;
+package com.alipay.sofa.isle.sample.consumer;
 
+import com.alipay.sofa.isle.sample.facade.SampleJvmService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alipay.sofa.runtime.api.annotation.SofaReference;

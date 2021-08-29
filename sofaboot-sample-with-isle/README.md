@@ -64,11 +64,11 @@ public class SampleJvmServiceImpl implements SampleJvmService {
 增加 META-INF/spring/service-provide.xml 文件，将 SampleJvmServiceImpl 发布为 JVM 服务:
 
 ```xml
-<bean id="sampleJvmService" class="com.alipay.sofa.isle.sample.SampleJvmServiceImpl">
+<bean id="sampleJvmService" class="com.alipay.sofa.isle.sample.provider.SampleJvmServiceImpl">
     <property name="message" value="Hello, jvm service xml implementation."/>
 </bean>
 
-<sofa:service ref="sampleJvmService" interface="com.alipay.sofa.isle.sample.SampleJvmService">
+<sofa:service ref="sampleJvmService" interface="com.alipay.sofa.isle.sample.facade.SampleJvmService">
     <sofa:binding.jvm/>
 </sofa:service>
 ```
@@ -94,7 +94,7 @@ public class SampleJvmServiceAnnotationImpl implements SampleJvmService {
 将 SampleJvmServiceAnnotationImpl 配置成一个 Spring Bean，保证 @SofaService 注解生效:
 
 ```xml
-<bean id="sampleJvmServiceAnnotation" class="com.alipay.sofa.isle.sample.SampleJvmServiceAnnotationImpl"/>
+<bean id="sampleJvmServiceAnnotation" class="com.alipay.sofa.isle.sample.provider.SampleJvmServiceAnnotationImpl"/>
 ```
 
 ### API 方式发布服务
@@ -125,7 +125,7 @@ public class PublishServiceWithClient implements ClientFactoryAware {
 将 PublishServiceWithClient 配置为 Spring Bean，并设置 init-method ，使PublishServiceWithClient 在 Spring 刷新时发布服务:
 
 ```xml
-<bean id="publishServiceWithClient" class="com.alipay.sofa.isle.sample.PublishServiceWithClient" init-method="init"/>
+<bean id="publishServiceWithClient" class="com.alipay.sofa.isle.sample.provider.PublishServiceWithClient" init-method="init"/>
 ```
 
 ## 引用 JVM 服务
@@ -148,7 +148,7 @@ Require-Module=com.alipay.sofa.service-provider
 增加 META-INF/spring/service-consumer.xml 文件，引用 service-provider 模块发布的服务:
 
 ```xml
-<sofa:reference id="sampleJvmService" interface="com.alipay.sofa.isle.sample.SampleJvmService">
+<sofa:reference id="sampleJvmService" interface="com.alipay.sofa.isle.sample.facade.SampleJvmService">
     <sofa:binding.jvm/>
 </sofa:service>
 ```
@@ -167,7 +167,7 @@ public class JvmServiceConsumer implements ClientFactoryAware {
 将 JvmServiceConsumer 配置成一个 Spring Bean，保证 @SofaReference 注解生效:
 
 ```xml
-<bean id="consumer" class="com.alipay.sofa.isle.sample.JvmServiceConsumer" init-method="init" />
+<bean id="consumer" class="com.alipay.sofa.isle.sample.consumer.JvmServiceConsumer" init-method="init" />
 ```
 
 ### API 方式引用服务
