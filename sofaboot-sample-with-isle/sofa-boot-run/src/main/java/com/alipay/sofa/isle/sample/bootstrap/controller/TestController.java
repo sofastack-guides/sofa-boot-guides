@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.isle.sample.controller;
+package com.alipay.sofa.isle.sample.bootstrap.controller;
 
 import java.io.IOException;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alipay.sofa.isle.sample.SampleJvmService;
+import com.alipay.sofa.isle.sample.facade.SampleJvmService;
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
 
 /**

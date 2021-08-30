@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.alipay.sofa.isle.sample.SampleJvmService;
+import com.alipay.sofa.isle.sample.facade.SampleJvmService;
 import com.alipay.sofa.runtime.api.annotation.SofaReference;
 
 /**

@@ -14,8 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.isle.sample;
+package com.alipay.sofa.isle.sample.provider;
 
+import com.alipay.sofa.isle.sample.facade.SampleJvmService;
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 
 /**
