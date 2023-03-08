@@ -16,12 +16,11 @@
  */
 package com.alipay.sofa.test.usercases;
 
-import org.junit.Assert;
-import org.junit.Test;
+import com.alipay.sofa.test.base.AbstractTestBase;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import com.alipay.sofa.test.base.AbstractTestBase;
 
 /**
  * JsonSampleControllerTest
@@ -34,9 +33,9 @@ public class JsonSampleControllerTest extends AbstractTestBase {
         ResponseEntity<String> responseEntity = testRestTemplate.getForEntity(urlHttpPrefix
                                                                               + "/json",
             String.class);
-        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        Assertions.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         String responseBody = responseEntity.getBody();
         LOGGER.info(responseBody);
-        Assert.assertTrue(responseBody.contains("zhangsan"));
+        Assertions.assertTrue(responseBody.contains("zhangsan"));
     }
 }

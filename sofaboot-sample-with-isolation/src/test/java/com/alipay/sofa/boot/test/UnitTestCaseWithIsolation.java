@@ -16,17 +16,14 @@
  */
 package com.alipay.sofa.boot.test;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.sofa.test.runner.SofaJUnit4Runner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author qilong.zql
  * @since 2.3.0
  */
-@RunWith(SofaJUnit4Runner.class)
 public class UnitTestCaseWithIsolation {
 
     public static final String testClassloader = "com.alipay.sofa.ark.container.test.TestClassLoader";
@@ -34,6 +31,6 @@ public class UnitTestCaseWithIsolation {
     @Test
     public void test() {
         ClassLoader currentClassLoader = this.getClass().getClassLoader();
-        Assert.assertTrue(currentClassLoader.getClass().getCanonicalName().equals(testClassloader));
+        Assertions.assertEquals(testClassloader, currentClassLoader.getClass().getCanonicalName());
     }
 }

@@ -16,17 +16,14 @@
  */
 package com.alipay.sofa.test.base;
 
-import org.junit.Before;
-import org.junit.runner.RunWith;
+import com.alipay.sofa.SOFABootWebApplication;
+import org.junit.jupiter.api.BeforeEach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.alipay.sofa.SOFABootWebApplication;
+import org.springframework.boot.test.web.server.LocalServerPort;
 
 /**
  * AbstractTestBase
@@ -35,7 +32,6 @@ import com.alipay.sofa.SOFABootWebApplication;
  * <p/>
  * Created by yangguanchao on 16/11/9.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = SOFABootWebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class AbstractTestBase {
 
@@ -52,7 +48,7 @@ public abstract class AbstractTestBase {
     @LocalServerPort
     public int                 port;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         urlHttpPrefix = "http://localhost:" + port;
     }

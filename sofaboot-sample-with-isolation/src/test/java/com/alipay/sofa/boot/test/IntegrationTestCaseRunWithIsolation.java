@@ -16,21 +16,18 @@
  */
 package com.alipay.sofa.boot.test;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.alipay.sofa.boot.examples.demo.isolation.SofaBootClassIsolationDemoApplication;
 import com.alipay.sofa.boot.examples.demo.service.facade.SampleService;
-import com.alipay.sofa.test.runner.SofaBootRunner;
 
 /**
  * @author qilong.zql
  * @since 2.3.0
  */
-@RunWith(SofaBootRunner.class)
 @SpringBootTest(classes = SofaBootClassIsolationDemoApplication.class)
 public class IntegrationTestCaseRunWithIsolation {
 
@@ -39,7 +36,7 @@ public class IntegrationTestCaseRunWithIsolation {
 
     @Test
     public void test() {
-        Assert.assertTrue("service".equals(sampleService.service()));
+        Assertions.assertEquals("service", sampleService.service());
     }
 
 }

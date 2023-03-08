@@ -19,6 +19,7 @@ package com.alipay.sofa;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * SOFABootWebApplication
@@ -27,6 +28,7 @@ import org.springframework.boot.SpringApplication;
  * Created by yangguanchao on 16/12/9.
  */
 @org.springframework.boot.autoconfigure.SpringBootApplication
+@ComponentScan("com.alipay.sofa.controller")
 public class SOFABootWebApplication {
 
     // init the logger

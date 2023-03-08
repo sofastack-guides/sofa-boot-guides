@@ -16,21 +16,18 @@
  */
 package com.alipay.sofa.common.dal.daiimpl;
 
+import com.alipay.sofa.common.dal.dai.NewsManageDao;
+import com.alipay.sofa.common.dal.dao.NewsDO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
-
-import com.alipay.sofa.common.dal.dai.NewsManageDao;
-import com.alipay.sofa.common.dal.dao.NewsDO;
 
 /**
  * @author qilong.zql
@@ -41,8 +38,9 @@ public class INewsManageDao implements NewsManageDao {
     @Autowired
     private DataSource dataSource;
 
+    @Override
     public int insert(NewsDO newDO) throws SQLException {
-        Assert.notNull(newDO);
+        Assert.notNull(newDO, "newDo must not be null");
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
         return statement.executeUpdate(String.format(
@@ -50,8 +48,9 @@ public class INewsManageDao implements NewsManageDao {
             newDO.getTitle()));
     }
 
+    @Override
     public List<NewsDO> query(String author) throws SQLException {
-        Assert.isTrue(!StringUtils.isEmpty(author));
+        Assert.hasText(author, "author must has text");
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(String.format(
@@ -66,8 +65,9 @@ public class INewsManageDao implements NewsManageDao {
         return answer;
     }
 
+    @Override
     public void delete(String author) throws SQLException {
-        Assert.isTrue(!StringUtils.isEmpty(author));
+        Assert.hasText(author, "author must has text");
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
         statement.execute(String.format("DELETE FROM NewsTable WHERE AUTHOR='%s';", author));

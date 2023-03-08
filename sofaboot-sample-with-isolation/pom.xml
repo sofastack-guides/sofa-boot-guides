@@ -33,13 +33,7 @@
         <!-- import SOFABoot Dependency healthcheck and infra -->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
-            <artifactId>healthcheck-sofa-boot-starter</artifactId>
-        </dependency>
-
-        <!-- SOFABoot Class Isolation Ability -->
-        <dependency>
-            <groupId>com.alipay.sofa</groupId>
-            <artifactId>sofa-ark-springboot-starter</artifactId>
+            <artifactId>actuator-sofa-boot-starter</artifactId>
         </dependency>
 
         <dependency>
@@ -50,7 +44,7 @@
         <!-- SOFABoot Class Isolation  Plugin -->
         <dependency>
             <groupId>com.alipay.sofa</groupId>
-            <artifactId>rpc-sofa-boot-plugin</artifactId>
+            <artifactId>ark-sofa-boot-starter</artifactId>
         </dependency>
 
         <dependency>
